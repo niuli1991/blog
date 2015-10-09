@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.2.1'
 gem 'rails', '4.2.4'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
@@ -8,6 +8,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+
+gem 'bootstrap-will_paginate',  '0.0.10'
 group :development, :test do
   gem 'byebug'
 end
@@ -17,6 +19,10 @@ group :development do
 end
 gem 'bootstrap-sass'
 gem 'devise'
+
+gem 'redcarpet'
+gem 'coderay'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -33,4 +39,8 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+end
+
+group :development do
+  gem 'meta_request'
 end

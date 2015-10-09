@@ -1,0 +1,58 @@
+<%= form_for(@blog) do |f|  %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, class: "textarea", placeholder: "Type your post"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+    $("#blog_content").qeditor({});
+    
+    // Custom a toolbar icon
+    var toolbar = $("#blog_content").parent().find(".qeditor_toolbar");
+    var link = $("<a href='#'><span class='icon-smile' title='smile'></span></a>");
+    link.click(function(){
+      alert("Put you custom toolbar event in here.");
+      return false;
+    });
+    toolbar.append(link);
+    
+    // Custom Insert Image icon event
+    function changeInsertImageIconWithCustomEvent() {
+      var link = toolbar.find("a.qe-image");
+      link.attr("data-action","");
+      link.click(function(e){
+        alert("New insert image event");
+        return false;
+      });
+      alert("Image icon event has changed, you can click it to test");
+      return false;
+    }
+    
+    $("#submit").click(function(){
+      alert($("#post_body").val());
+    });
+    </script>
