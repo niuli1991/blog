@@ -1,7 +1,6 @@
 <%# add navigation links to this file %>
 <ul class="nav navbar-nav">
 	<% if user_signed_in? %>
-	  <li class=""><%= link_to 'Edit account', edit_user_registration_path %></li>
 	  <li class=""><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 	<% else %>
 	  <li class=""><%= link_to 'Sign in', new_user_session_path %></li>
@@ -17,8 +16,8 @@
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="#">Blog</a>
-					<a href="#">Profile</a>
+					<%= link_to "Blogs", blogs_path %>
+					<%= link_to "Profile", edit_user_registration_path %>					
 				</li>
 			</ul>
 		</li>
