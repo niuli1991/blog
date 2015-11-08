@@ -1,6 +1,6 @@
 <div class="authform">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form', multipart: true}) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-group">
       <%= f.label :name %>
@@ -23,6 +23,12 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      <span class="picture">
+        <p>
+          Upload your picture!
+        </p>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+      </span>
     </fieldset>
     <fieldset>
       <p>You must enter your current password to make changes.</p>
@@ -39,3 +45,11 @@
 <p>Unhappy? We'll be sad to see you go.</p>
 <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
 </div>
+<script type="text/javascript">
+$("#user_picture").bind('change',function(){
+  var size_in_megabytes = this.files[0].size/1024/1024;
+  if(size_in_megabytes > 5){
+    alert("Maximum file size is 5MB. Please choose a smaller file.");
+  }
+})
+</script>
