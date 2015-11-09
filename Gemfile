@@ -13,7 +13,7 @@ gem 'bootstrap-will_paginate',  '0.0.10'
 gem 'carrierwave',  '0.10.0'
 gem 'mini_magick',  '3.8.0'
 gem 'fog',  '1.23.0'
-
+gem 'net-ssh', '2.10.0.beta2'
 
 group :development, :test do
   gem 'byebug'
