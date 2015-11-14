@@ -36,6 +36,23 @@ class ApplicationController < ActionController::Base
   	 	redirect_to root_url;
   	end
   end
+  
+  def admin_user
+    unless current_user.try(:admin?)
+      redirect_to root_url;
+    end
+  end
+  #判断当前用户是否为管理员
+  #if current_user.admin?
+    # do something
+    #current_user.update_attribute :admin, true   将当前用户授权为管理员
+  #end
+
+  #判断当前用户是否为管理员，但是如果当前用户不存在（current_user为nil），则会抛出异常（undefined method `admin?' for nil:NilClass）。
+  #if current_user.try(:admin?)
+    # do something
+  #end
+
   private
 
   def create_guest_user
