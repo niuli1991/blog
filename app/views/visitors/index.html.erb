@@ -1,2 +1,24 @@
+<!--
 <h3>Welcome</h3>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+-->
+<h2>Listing Blogs</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %><%= link_to 'Show', blog %></td>
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

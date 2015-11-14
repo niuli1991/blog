@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   #before_action :authenticate_user!
   protect_from_forgery :except => :receive_guest
+  before_action :is_logined, only: [ :create ,:edit, :update, :destroy]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs

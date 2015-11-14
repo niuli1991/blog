@@ -16,9 +16,13 @@
       <tr>
         <td><%= blog.title %></td>
         <td>
-          <%= link_to 'Show', blog %>
-          <%= link_to 'Edit', edit_blog_path(blog) %>
-          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if user_signed_in? %>
+            <%= link_to 'Show', blog %>
+            <%= link_to 'Edit', edit_blog_path(blog) %>
+            <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= link_to 'Show', blog %>
+          <% end %>
         </td>
       </tr>
     <% end %>
@@ -26,5 +30,7 @@
 </table>
 <%= will_paginate %>
 <br>
+<% if user_signed_in? %>
+  <%= link_to 'New Blog', new_blog_path %>
+<% end %>
 
-<%= link_to 'New Blog', new_blog_path %>
