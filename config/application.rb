@@ -11,10 +11,10 @@ module RailsDevise
 
     config.generators do |g|
       g.test_framework :rspec,
-        fixtures: true,
-        view_specs: false,
-        helper_specs: false,
-        routing_specs: false,
+        fixtures: true,#为各模型生成测试固件(使用Factory Girl创建的预构建，而不是默认的固件)
+        view_specs: false,#不生成“视图测试”
+        helper_specs: false,#生成控制器时不生成对应的帮助方法测试文件
+        routing_specs: false,#不生成针对config/routes.rb的测试文件
         controller_specs: false,
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
