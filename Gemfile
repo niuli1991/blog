@@ -26,6 +26,11 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor', '0.0.2'
+  gem 'unicorn',  '4.8.3'
+end
 
 group :development do
   gem 'better_errors'
@@ -48,3 +53,4 @@ end
 group :development do
   gem 'meta_request'
 end
+
