@@ -8,7 +8,7 @@
 #user = CreateAdminService.new.call
 #puts 'CREATED ADMIN USER: ' << user.email
 User.create!(name: 'han', email: 'user@example.com', password:'hanrong', 
-	password_confirmation: 'hanrong')
+	password_confirmation: 'hanrong123')
 
 User.create!(name: 'hanrong', email: 'admin@example.com', password:'hanrong', 
-	password_confirmation: 'hanrong', admin: true)
+	password_confirmation: 'hanrong123', admin: true)
