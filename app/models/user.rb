@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   has_many :blogs
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  mount_uploader :picture, PictureUploader
+#  mount_uploader :picture, PictureUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validate :picture_size
+#  validate :picture_size
 
   #根据用户名称模糊查找用户
   def self.by_letter_name(letter)

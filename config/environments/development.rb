@@ -27,6 +27,8 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.coding = "utf-8"
+
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,

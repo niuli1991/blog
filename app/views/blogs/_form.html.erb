@@ -1,3 +1,4 @@
+
 <%= form_for(@blog) do |f|  %>
   <% if @blog.errors.any? %>
     <div id="error_explanation">
@@ -17,38 +18,27 @@
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content, class: "textarea", placeholder: "Type your post"%>
+    <%= f.text_area :content, class: "textarea" %>
   </div>
-  <%= f.text_field :user_id, type: "hidden" %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 <script type="text/javascript">
-    $("#blog_content").qeditor({});
-    
-    // Custom a toolbar icon
-    var toolbar = $("#blog_content").parent().find(".qeditor_toolbar");
-    var link = $("<a href='#'><span class='icon-smile' title='smile'></span></a>");
-    link.click(function(){
-      alert("Put you custom toolbar event in here.");
-      return false;
-    });
-    toolbar.append(link);
-    
-    // Custom Insert Image icon event
-    function changeInsertImageIconWithCustomEvent() {
-      var link = toolbar.find("a.qe-image");
-      link.attr("data-action","");
-      link.click(function(e){
-        alert("New insert image event");
-        return false;
-      });
-      alert("Image icon event has changed, you can click it to test");
-      return false;
-    }
-    
-    $("#submit").click(function(){
-      alert($("#post_body").val());
-    });
+    var editor = new Simditor({
+      textarea: $('#blog_content'),
+      toolbar: [
+        'title','bold','italic','underline','strikethrough','color','|',
+        'ol','ul','blockquote','code','table','link','image','hr','|',
+        'indent','outdent'
+      ],
+      pasteImage: true,
+      placeholder: '请输入正文',
+      defaultImage: '<%= image_path "upload-loading.png"%>',
+      upload: {
+        url: '/upload',
+        leaveConfirm: '正在上传文件，如果离开上传会自动取消'
+      }
+    })
     </script>
