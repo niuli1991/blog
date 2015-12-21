@@ -1,18 +1,18 @@
 
 
 <p>
-  <strong>Title:</strong>
+  <strong>标题:</strong>
   <%= @blog.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>内容:</strong>
   <%= @blog.content.html_safe %>
   
 </p>
 
 <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_blog_path(@blog) %> | <%= link_to 'Back', blogs_path %>
+    <%= link_to '编辑', edit_blog_path(@blog) %> | <%= link_to '返回文章列表', blogs_path %>
 <% else %>
-	<%= link_to 'Back', root_url %>
+	<%= link_to '返回文章列表', root_url %>
 <% end %>
