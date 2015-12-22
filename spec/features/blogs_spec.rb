@@ -7,10 +7,10 @@ feature '普通用户' do
 		Sign_in user
 		visit blogs_path
 		expect{
-			click_link 'New Blog'
-			fill_in 'Title', with: 'abcdefgh'
-			fill_in 'Content', with: '张三石头是逗比！'
-			click_button 'Create Blog'
+			click_link '写新文章'
+			fill_in '标题', with: 'abcdefgh'
+			fill_in '内容', with: '张三石头是逗比！'
+			click_button '保存'
 		}.to change(Blog, :count).by(1)
 
 		#查看前面操作的结果
